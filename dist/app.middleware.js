@@ -6,24 +6,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AppModule = void 0;
+exports.AppMiddleware = void 0;
 const common_1 = require("@nestjs/common");
-const app_controller_1 = require("./app.controller");
-const app_service_1 = require("./app.service");
-const app_middleware_1 = require("./app.middleware");
-let AppModule = class AppModule {
-    configure(consumer) {
-        consumer
-            .apply(app_middleware_1.AppMiddleware)
-            .forRoutes({ path: "*", method: common_1.RequestMethod.ALL });
+let AppMiddleware = class AppMiddleware {
+    use(req, res, next) {
+        res.writeHead(200, {
+            'content-type': 'application/json',
+            'x-access-token': 1,
+            'cross-origin-opener-policy': 'unsafe-none',
+            'Cross-Origin-Embedder-Policy': 'unsafe-non',
+            'Cross-Origin-Resource-Policy': 'cross-origin',
+        });
+        res.write(JSON.stringify({ test: 'test' }));
+        res.end();
     }
 };
-AppModule = __decorate([
-    (0, common_1.Module)({
-        imports: [],
-        controllers: [app_controller_1.AppController],
-        providers: [app_service_1.AppService],
-    })
-], AppModule);
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+AppMiddleware = __decorate([
+    (0, common_1.Injectable)()
+], AppMiddleware);
+exports.AppMiddleware = AppMiddleware;
+//# sourceMappingURL=app.middleware.js.map
