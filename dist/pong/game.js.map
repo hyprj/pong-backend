@@ -1,0 +1,1 @@
+{"version":3,"file":"game.js","sourceRoot":"","sources":["../../src/pong/game.ts"],"names":[],"mappings":";;;AACA,iCAA8B;AAE9B,MAAa,IAAI;IAKb,YAAY,WAAmB,EAAE,YAAoB;QACjD,IAAI,CAAE,IAAI,GAAG,IAAI,WAAI,CAAC,WAAW,EAAE,YAAY,CAAC,CAAA;IACpD,CAAC;CACJ;AARD,oBAQC"}

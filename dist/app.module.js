@@ -11,6 +11,7 @@ const common_1 = require("@nestjs/common");
 const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
 const app_middleware_1 = require("./app.middleware");
+const gateway_module_1 = require("./gateways/gateway.module");
 let AppModule = class AppModule {
     configure(consumer) {
         consumer
@@ -20,7 +21,7 @@ let AppModule = class AppModule {
 };
 AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [],
+        imports: [gateway_module_1.GatewayModule],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
     })
